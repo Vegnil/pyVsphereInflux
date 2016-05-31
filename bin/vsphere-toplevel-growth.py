@@ -8,8 +8,8 @@ import datetime
 
 from datetime import datetime as dt
 from datetime import timedelta as td
-from influxdb.influxdb08 import InfluxDBClient
-from pyVsphereInflux import InfluxResult08
+from influxdb import InfluxDBClient
+from pyVsphereInflux import InfluxResult
 
 influx_dsn_default = "influxdb://root:root@localhost:8086/database"
 data_spec = {

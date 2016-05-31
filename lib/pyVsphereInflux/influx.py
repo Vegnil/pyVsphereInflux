@@ -1,5 +1,6 @@
-from influxdb.influxdb08 import InfluxDBClient
-from pyVsphereInflux import InfluxResult08
+from influxdb import InfluxDBClient
+from pyVsphereInflux import InfluxResult
+import pprint
 
 def write_results(dsn, results):
     """Connect to an InfluxDB instance and write results to it
@@ -9,7 +10,10 @@ def write_results(dsn, results):
                 results: a list of InfluxResult objects
     """
     client = InfluxDBClient.from_DSN(dsn)
+    print client.get_list_database()
+    client.switch_database(client._database)
     raw_dicts = [x.to_dict() for x in results]
+    pprint.pprint(raw_dicts)
     client.write_points(raw_dicts)
 
 def find_first_point(dsn, search, interval=None):

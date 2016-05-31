@@ -9,7 +9,7 @@ import ssl
 
 from pyVim import connect
 from pyVmomi import vim
-from pyVsphereInflux import InfluxResult08
+from pyVsphereInflux import InfluxResult
 from pyVsphereInflux.vsphere import build_vmresultset
 from pyVsphereInflux.influx import write_results
 from pyVsphereInflux.tools.regex import convert_to_alnum
@@ -45,7 +45,7 @@ def agg_by_vcenter(results):
 
         # new vcenter, which means new aggregrate
         if vcenter not in agg_vcenter:
-            agg_obj = InfluxResult08("%s.%s" % (meas_base, vcenter))
+            agg_obj = InfluxResult("%s.%s" % (meas_base, vcenter))
             for tag in ['vcenter']:
                 agg_obj.tags[tag] = ts.tags[tag]
             for field in ts.fields:
@@ -89,7 +89,7 @@ def agg_by_topLevelFolder(results):
 
         # new topLevelFolder, which means new aggregrate
         if topLevelFolder not in agg_topLevelFolder[vcenter][datacenter]:
-            agg_obj = InfluxResult08("%s.%s.%s.%s" % \
+            agg_obj = InfluxResult("%s.%s.%s.%s" % \
                 (meas_base, vcenter, datacenter, topLevelFolder))
             for tag in ['vcenter', 'datacenter', 'topLevelFolder']:
                 agg_obj.tags[tag] = ts.tags[tag]

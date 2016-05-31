@@ -4,7 +4,7 @@ import sys
 import argparse
 
 from copy import copy
-from pyVsphereInflux import InfluxResult08
+from pyVsphereInflux import InfluxResult
 from pyVsphereInflux.influx import write_results, find_first_point
 from pyVsphereInflux.tools.regex import convert_to_alnum
 

@@ -8,9 +8,9 @@ setup(name='pyVsphereInflux',
       package_dir={'': 'lib'},
       packages=find_packages('lib'),
       install_requires=[
-        'pyvmomi==5.5.0.2014.1.1',
-        'influxdb==2.6.0',
-        'pexpect==3.3',
+        'pyvmomi',
+        'influxdb',
+        'pexpect',
       ])
       
 # vim: et:ai:sw=4:ts=4
