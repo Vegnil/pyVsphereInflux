@@ -29,7 +29,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
                          "-Password", args.vnx_password,
                          "-Scope", "0",
                          "-h", vnx,
-                         "getcontrol", "-all"]
+                         "getcontrol", "-busy", "-idle"]
 
     naviout = check_output(cmd)
         
