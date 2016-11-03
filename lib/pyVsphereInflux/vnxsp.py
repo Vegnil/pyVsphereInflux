@@ -31,7 +31,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
                          "-h", vnx,
                          "getcontrol", "-all"]
     naviout = check_output(cmd)
-     print naviout
+
     # build the result data structures
     recs = []
     data = {}
@@ -41,7 +41,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
             continue
 
         # colon-delimited key value pairs
-        key, value = line.split(":")
+        key, value = line.split(":", 0)
 
         key = convert_to_alnum(key.strip())
         value = value.strip()
