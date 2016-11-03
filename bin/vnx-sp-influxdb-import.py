@@ -36,7 +36,7 @@ def main():
         print meas
         results = build_vnxsp(vnx, vnx_tags, vnx_fields, 
                             measurement=meas, args=args)
-        
+        print results
         if args.debug:
             print "Results of VNX query:"
             for ts in results:
