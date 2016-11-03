@@ -50,7 +50,7 @@ print key
 print value
         # Pool Name signals the start of a new record, so push the current
         # record onto the list if we parsed anything from it
-        if key == "PRCT_BUSY" and len(data.keys()) > 0:
+        if key == "Prct Busy" and len(data.keys()) > 0:
             recs.append(data)
             data = {}
 
@@ -77,7 +77,7 @@ print value
 
     for data in recs:
         missing_data = False
-        meas = "%s.%s" % (measurement, convert_to_alnum(data['PRCT_BUSY']))
+        meas = "%s.%s" % (measurement, convert_to_alnum(data['Prct Busy']))
         ts = InfluxResult(meas)
         for tag in tags:
             try:
