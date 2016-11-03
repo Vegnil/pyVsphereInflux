@@ -10,7 +10,7 @@ from pyVsphereInflux.tools.regex import convert_to_alnum
 
 influx_dsn_default = "influxdb://root:root@localhost:8086/database"
 
-vnx_tags = "Prct_Busy"
+vnx_tags = ['Prct_Busy']
 vnx_fields = ['Prct_Busy',
              'Prct_Idle']
 def main():
@@ -33,10 +33,9 @@ def main():
     for vnx in args.vnx:
 
         meas = "vnxprop.%s" % (convert_to_alnum(vnx))
-        print meas
         results = build_vnxsp(vnx, vnx_tags, vnx_fields, 
                             measurement=meas, args=args)
-        print results
+       
         if args.debug:
             print "Results of VNX query:"
             for ts in results:
