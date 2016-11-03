@@ -40,11 +40,12 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
         # skip whitespace and blank lines
         if line == "" or line.isspace():
             continue   
-        if ':' in line:
         # colon-delimited key value pairs
+        try:
         key, value = line.split(":", 2)
-        
-
+        except ValueError: 
+                logging.warn("Could not split line: %s", line)
+   continue
         key = convert_to_alnum(key.strip())
         value = value.strip()
         # Pool Name signals the start of a new record, so push the current
