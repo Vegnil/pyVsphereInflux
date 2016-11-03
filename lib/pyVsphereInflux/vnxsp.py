@@ -46,10 +46,11 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
 
         key = convert_to_alnum(key.strip())
         value = value.strip()
-
+print key
+print value
         # Pool Name signals the start of a new record, so push the current
         # record onto the list if we parsed anything from it
-        if key == "Serial_Number_For_The_SP" and len(data.keys()) > 0:
+        if key == "PRCT_BUSY" and len(data.keys()) > 0:
             recs.append(data)
             data = {}
 
@@ -76,7 +77,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
 
     for data in recs:
         missing_data = False
-        meas = "%s.%s" % (measurement, convert_to_alnum(data['vnx']))
+        meas = "%s.%s" % (measurement, convert_to_alnum(data['PRCT_BUSY']))
         ts = InfluxResult(meas)
         for tag in tags:
             try:
