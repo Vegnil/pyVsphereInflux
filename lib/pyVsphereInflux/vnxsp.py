@@ -42,10 +42,9 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
         # skip whitespace and blank lines
         if line == "" or line.isspace():
             continue
-print recs
-print data
+        print naviout
         # colon-delimited key value pairs
-        key, value = line.split(":", 0)
+        key, value = line.split(":", 2)
 
         key = convert_to_alnum(key.strip())
         value = value.strip()
