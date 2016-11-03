@@ -29,20 +29,18 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
                          "-Password", args.vnx_password,
                          "-Scope", "0",
                          "-h", vnx,
-                         "getcontrol", "-all"]
+                         "getcontrol", "-cbt"]
 
     naviout = check_output(cmd)
 
-    print naviout
-
-    # build the result data structures
+     # build the result data structures
     recs = []
     data = {}
     for line in naviout.splitlines():
         # skip whitespace and blank lines
         if line == "" or line.isspace():
             continue
-        print naviout
+        
         # colon-delimited key value pairs
         key, value = line.split(":", 2)
 
