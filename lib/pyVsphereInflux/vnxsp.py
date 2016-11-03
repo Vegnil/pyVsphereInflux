@@ -36,7 +36,6 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
      # build the result data structures
     recs = []
     data = {}
-print data
     for line in naviout.splitlines():
         # skip whitespace and blank lines
         if line == "" or line.isspace():
