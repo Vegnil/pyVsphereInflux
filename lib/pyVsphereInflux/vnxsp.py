@@ -69,9 +69,9 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
 
         data[key] = value
         
-        print value
+       
         print data
-        print recs
+        
             
     # grab the final record
     if len(data.keys()) > 0:
