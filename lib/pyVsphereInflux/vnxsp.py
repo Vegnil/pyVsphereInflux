@@ -29,10 +29,10 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
                          "-Password", args.vnx_password,
                          "-Scope", "0",
                          "-h", vnx,
-                         "getcontrol", "-busy", "-idle"]
+                         "getcontrol", "-all"]
 
     naviout = check_output(cmd)
-
+print naviout
      # build the result data structures
     recs = []
     data = {}
