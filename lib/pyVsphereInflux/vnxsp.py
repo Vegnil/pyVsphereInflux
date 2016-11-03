@@ -98,5 +98,3 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
     return res
 
 # vim: et:ai:sw=4:ts=4
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help
