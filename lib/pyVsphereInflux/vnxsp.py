@@ -32,7 +32,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
                          "getcontrol", "-all"]
 
     naviout = check_output(cmd)
-print naviout
+        
      # build the result data structures
     recs = []
     data = {}
@@ -40,7 +40,7 @@ print naviout
         # skip whitespace and blank lines
         if line == "" or line.isspace():
             continue
-        
+    print naviout    
         # colon-delimited key value pairs
         key, value = line.split(":", 2)
 
