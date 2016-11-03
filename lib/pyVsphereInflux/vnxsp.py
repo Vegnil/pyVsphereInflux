@@ -76,7 +76,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
 
     for data in recs:
         missing_data = False
-        meas = "%s.%s" % (measurement, convert_to_alnum(data['Serial_Number_For_The_SP']))
+        meas = "%s.%s" % (measurement, convert_to_alnum(data['vnx']))
         ts = InfluxResult(meas)
         for tag in tags:
             try:
