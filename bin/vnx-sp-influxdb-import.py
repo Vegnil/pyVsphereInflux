@@ -33,7 +33,7 @@ def main():
     for vnx in args.vnx:
 
         meas = "vnxprop.%s" % (convert_to_alnum(vnx))
-        results = build_vnx(vnx, vnx_tags, vnx_fields, 
+        results = build_vnxsp(vnx, vnx_tags, vnx_fields, 
                             measurement=meas, args=args)
         
         if args.debug:
