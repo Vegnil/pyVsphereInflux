@@ -39,10 +39,9 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
     for line in naviout.splitlines():
         # skip whitespace and blank lines
         if line == "" or line.isspace():
-            continue
-    print naviout    
+            continue   
         # colon-delimited key value pairs
-        key, value = line.split(":", 2)
+        key, value = line.split(":"," ", 2)
 
         key = convert_to_alnum(key.strip())
         value = value.strip()
