@@ -41,7 +41,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
             continue
 
         # colon-delimited key value pairs
-        key, value = line.split(":", 1)
+        key, value = line.split(":", 2)
 
         key = convert_to_alnum(key.strip())
         value = value.strip()
