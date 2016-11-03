@@ -29,7 +29,7 @@ def build_vnx(vnx, tags, fields, measurement='vnxprop', args=None):
                          "-Password", args.vnx_password,
                          "-Scope", "0",
                          "-h", vnx,
-                         "storagepool", "-list", "-capacities", "-luns"]
+                         "getcontrol", "-all"]
     naviout = check_output(cmd)
 
     # build the result data structures
@@ -48,7 +48,7 @@ def build_vnx(vnx, tags, fields, measurement='vnxprop', args=None):
 
         # Pool Name signals the start of a new record, so push the current
         # record onto the list if we parsed anything from it
-        if key == "Pool_Name" and len(data.keys()) > 0:
+        if key == "Serial_Number_For_The_SP" and len(data.keys()) > 0:
             recs.append(data)
             data = {}
 
@@ -75,7 +75,7 @@ def build_vnx(vnx, tags, fields, measurement='vnxprop', args=None):
 
     for data in recs:
         missing_data = False
-        meas = "%s.%s" % (measurement, convert_to_alnum(data['Pool_Name']))
+        meas = "%s.%s" % (measurement, convert_to_alnum(data['Serial_Number_For_The_SP']))
         ts = InfluxResult(meas)
         for tag in tags:
             try:
