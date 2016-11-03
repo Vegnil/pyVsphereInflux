@@ -4,19 +4,15 @@
 import sys
 import argparse
 
-from pyVsphereInflux.vnx import build_vnx
+from pyVsphereInflux.vnx-sp import build_vnx
 from pyVsphereInflux.influx import write_results
 from pyVsphereInflux.tools.regex import convert_to_alnum
 
 influx_dsn_default = "influxdb://root:root@localhost:8086/database"
 
-vnx_tags = ['Pool_Name',
-            'Pool_ID']
-vnx_fields = ['LUN_Count',
-             'User_Capacity__GBs_',
-             'Consumed_Capacity__GBs_',
-             'Total_Subscribed_Capacity__GBs_',
-             'Available_Capacity__GBs_']
+vnx_tags = ['Serial_Number_For_The_SP']
+vnx_fields = ['Prct_Busy',
+             'Prct_Idle']
 def main():
     # take some input 
     parser = argparse.ArgumentParser(description="collect metrics from VNX and import into InfluxDB.  Assumes naviseccli is in the PATH")
