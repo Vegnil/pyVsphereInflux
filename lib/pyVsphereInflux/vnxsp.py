@@ -29,7 +29,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
                          "-Password", args.vnx_password,
                          "-Scope", "0",
                          "-h", vnx,
-                         "getcontrol", "-busy", "-idle"]
+                         "getcontrol", "-busy", "-idle", "-sl"]
 
     naviout = check_output(cmd)
         
@@ -47,7 +47,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
         value = value.strip()
         # Pool Name signals the start of a new record, so push the current
         # record onto the list if we parsed anything from it
-        if key == "Prct_Busy" and len(data.keys()) > 0:
+        if key == "Statistics_Logging" and len(data.keys()) > 0:
             recs.append(data)
             data = {}
 
@@ -78,7 +78,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
 
     for data in recs:
         missing_data = False
-        meas = "%s.%s" % (measurement, convert_to_alnum(data['Prct_Busy']))
+        meas = "%s.%s" % (measurement, convert_to_alnum(data['Statistics_Logging']))
         ts = InfluxResult(meas)
         for tag in tags:
             try:
