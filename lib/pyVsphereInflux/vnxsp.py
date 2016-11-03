@@ -30,7 +30,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
                          "-Scope", "0",
                          "-h", vnx,
                          "getcontrol", "-all"]
-    print cmd
+
     naviout = check_output(cmd)
 
     print naviout
@@ -42,7 +42,8 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
         # skip whitespace and blank lines
         if line == "" or line.isspace():
             continue
-
+print recs
+print data
         # colon-delimited key value pairs
         key, value = line.split(":", 0)
 
