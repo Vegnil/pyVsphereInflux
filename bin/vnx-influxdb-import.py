@@ -15,7 +15,8 @@ vnx_tags = ['Pool_Name',
 vnx_fields = ['LUN_Count',
              'User_Capacity__GBs_',
              'Consumed_Capacity__GBs_',
-             'Total_Subscribed_Capacity__GBs_']
+             'Total_Subscribed_Capacity__GBs_',
+             'Available_Capacity__GBs_']
 def main():
     # take some input 
     parser = argparse.ArgumentParser(description="collect metrics from VNX and import into InfluxDB.  Assumes naviseccli is in the PATH")
