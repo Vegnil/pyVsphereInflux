@@ -76,7 +76,7 @@ def build_vnx(vnx, tags, fields, measurement='vnxprop', args=None):
     for data in recs:
         missing_data = False
         meas = "%s.%s" % (measurement, convert_to_alnum(data['Pool_Name']))
-        ts = InfluxResult08(meas)
+        ts = InfluxResult(meas)
         for tag in tags:
             try:
                 ts.tags[tag] = data[tag]
