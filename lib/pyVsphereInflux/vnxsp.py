@@ -33,6 +33,8 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
     print cmd
     naviout = check_output(cmd)
 
+    print naviout
+
     # build the result data structures
     recs = []
     data = {}
