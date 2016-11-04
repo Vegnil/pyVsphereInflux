@@ -8,7 +8,7 @@ from pyVsphereInflux import InfluxResult
 from pyVsphereInflux.tools.regex import convert_to_alnum
 
         
-def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
+def build_vnx60s(vnx, tags, fields, measurement='vnxprop', args=None):
     """Build a list of InfluxResult objects
             Arguments:
                 vnx: the hostname of a VNX SP to connect to
