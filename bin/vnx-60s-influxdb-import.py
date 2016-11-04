@@ -4,7 +4,7 @@
 import sys
 import argparse
 
-from pyVsphereInflux.vnxsp import build_vnx60s
+from pyVsphereInflux.vnxvnx60s import build_vnx60s
 from pyVsphereInflux.influx import write_results
 from pyVsphereInflux.tools.regex import convert_to_alnum
 
