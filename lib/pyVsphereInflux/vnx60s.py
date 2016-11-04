@@ -68,7 +68,7 @@ def build_vnx60s(vnx, tags, fields, measurement='vnxprop', args=None):
 
         data[key] = value
         
-       
+        print "printer data"
         print data
         
             
