@@ -11,8 +11,8 @@ from pyVsphereInflux.tools.regex import convert_to_alnum
 influx_dsn_default = "influxdb://root:root@localhost:8086/database"
 
 vnx_tags = ['Statistics_Logging']
-vnx_fields = ['Prct_Busy',
-             'Prct_Idle']
+vnx_fields = ['Controller_busy_ticks',
+             'Controller_idle_ticks']
 def main():
     # take some input 
     parser = argparse.ArgumentParser(description="collect metrics from VNX and import into InfluxDB.  Assumes naviseccli is in the PATH")
