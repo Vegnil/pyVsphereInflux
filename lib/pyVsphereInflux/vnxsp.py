@@ -29,7 +29,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
                          "-Password", args.vnx_password,
                          "-Scope", "0",
                          "-h", vnx,
-                         "getcontrol", "-busy", "-idle"]
+                         "getcontrol", "-busy", "-idle", "-sl"]
 
     naviout = check_output(cmd)
         
@@ -78,7 +78,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
 
     for data in recs:
         missing_data = False
-        meas = "%s.%s" % (measurement, (data['vnx']))
+        meas = "%s.%s" % (measurement, (data['Statistics_Logging']))
         ts = InfluxResult(meas)
         for tag in tags:
             try:
