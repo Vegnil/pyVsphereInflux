@@ -78,7 +78,7 @@ def build_vnxsp(vnx, tags, fields, measurement='vnxprop', args=None):
 
     for data in recs:
         missing_data = False
-        meas = "%s.%s" % (measurement, (data['Controller_busy_ticks']))
+        meas = "%s.%s" % (measurement, (data['Statistics_Logging']))
         ts = InfluxResult(meas)
         for tag in tags:
             try:
