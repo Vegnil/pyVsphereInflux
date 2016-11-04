@@ -10,7 +10,7 @@ from pyVsphereInflux.tools.regex import convert_to_alnum
 
 influx_dsn_default = "influxdb://root:root@localhost:8086/database"
 
-vnx_tags = "cpu_0"
+vnx_tags = ['Prct_Busy']
 vnx_fields = ['Prct_Busy',
              'Prct_Idle']
 def main():
