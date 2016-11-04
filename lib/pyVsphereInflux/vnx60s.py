@@ -70,6 +70,7 @@ def build_vnx60s(vnx, tags, fields, measurement='vnxprop', args=None):
         
         print "printer data"
         print data
+        print "data ferdig"
         
             
     # grab the final record
